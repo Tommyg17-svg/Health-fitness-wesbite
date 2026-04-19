@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JQuery Page</title>
+
+  <!-- jQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fffaf5;
+      color: #333;
+    }
+
+    header {
+      background-color: #d97706;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .navbar {
+      margin-top: 10px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 25px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .one { background-color: #fcd5ce; }
+    .two { background-color: #d8f3dc; }
+    .three { background-color: #cddafd; }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      background-color: #9a3412;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 250px;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function(){
+
+      // Interaction 1: click to hide paragraph
+      $(".hideText").click(function(){
+        $(this).hide();
+      });
+
+      // Interaction 2: toggle image
+      $("#toggleBtn").click(function(){
+        $("#bakeryImg").toggle();
+      });
+
+      // Interaction 3: mouseenter effect
+      $("#specialTitle").mouseenter(function(){
+        $(this).css("color", "purple").slideUp(1000).slideDown(1000);
+      });
+
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to Delicious Bakery</h1>
+    <div class="navbar">
+      <a href="index.html">Bakery Home</a>
+      <a href="recipes.html">Recipe Cards</a>
+      <a href="celebrity.html">Celebrity Favorites</a>
+      <a href="materialize.html">Materialize</a>
+      <a href="jquery.html">JQuery</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="one">
+      <h2>Click the Text</h2>
+      <p class="hideText">Click me and I will disappear.</p>
+      <p class="hideText">You can click me away too.</p>
+      <p class="hideText">Try this one also.</p>
+    </section>
+
+    <section class="two">
+      <h2>Toggle the Bakery Image</h2>
+      <p>Press the button to hide or show the bakery image.</p>
+      <button id="toggleBtn">Show/Hide Image</button><br>
+      <img id="bakeryImg" src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800" alt="Bakery display">
+    </section>
+
+    <section class="three">
+      <h2 id="specialTitle">Move Your Mouse Over Me</h2>
+      <p>This heading changes color and slides when you hover on it.</p>
+    </section>
+  </main>
+
+</body>
+</html>
+
+A few things f
