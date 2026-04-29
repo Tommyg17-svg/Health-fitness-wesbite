@@ -4,8 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Healthy Living Home</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <!-- Your CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header>
@@ -13,15 +19,15 @@
     <p>Simple ways to improve your health, fitness, and daily habits.</p>
   </header>
 
- <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="content.html">Content</a>
-  <a href="contact.html">Contact</a>
-  <a href="jquery.html">jQuery</a>
-  <a href="materialize.html">Materialize</a>
-  <a href="bootstrap.html">Bootstrap</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="content.html">Content</a>
+    <a href="contact.html">Contact</a>
+    <a href="jquery.html">jQuery</a>
+    <a href="materialize.html">Materialize</a>
+    <a href="bootstrap.html">Bootstrap</a>
+  </nav>
 
   <main>
     <section>
@@ -49,11 +55,56 @@
       <img src="Images/fitness1.jpg" alt="Fitness image on home page">
     </section>
 
+    <!-- MATERIALIZE CAROUSEL REQUIREMENT -->
+    <section>
+      <h2>Healthy Living Gallery</h2>
+
+      <div class="carousel">
+        <a class="carousel-item" href="#one!">
+          <img src="Images/fitness1.jpg" alt="Fitness image">
+        </a>
+        <a class="carousel-item" href="#two!">
+          <img src="Images/fitness2.jpg" alt="Workout image">
+        </a>
+        <a class="carousel-item" href="#three!">
+          <img src="Images/fitness3.jpg" alt="Healthy food image">
+        </a>
+      </div>
+    </section>
+
     <section>
       <h2>Try These Buttons</h2>
       <button onclick="showMessage()">Show Motivation</button>
       <button onclick="changeBackground()">Change Background</button>
       <p id="message"></p>
+    </section>
+
+    <!-- MATERIALIZE COLLAPSIBLE REQUIREMENT -->
+    <section>
+      <h2>Health Tips</h2>
+
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header">Stay Hydrated</div>
+          <div class="collapsible-body">
+            <span>Drinking enough water helps your body stay energized and focused.</span>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">Exercise Regularly</div>
+          <div class="collapsible-body">
+            <span>Even a short walk or quick workout can improve your health over time.</span>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">Eat Balanced Meals</div>
+          <div class="collapsible-body">
+            <span>Eating fruits, vegetables, protein, and whole grains supports a healthy lifestyle.</span>
+          </div>
+        </li>
+      </ul>
     </section>
   </main>
 
@@ -61,6 +112,22 @@
     <p>&copy; 2026 Healthy Living and Fitness</p>
   </footer>
 
+  <!-- Materialize JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Your JavaScript -->
   <script src="script.js"></script>
+
+  <!-- Initialize Materialize Components -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var carousel = document.querySelectorAll('.carousel');
+      M.Carousel.init(carousel);
+
+      var collapsible = document.querySelectorAll('.collapsible');
+      M.Collapsible.init(collapsible);
+    });
+  </script>
+
 </body>
 </html>
