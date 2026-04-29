@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Health and Fitness</title>
+  <title>Health and Fitness Materialize</title>
 
   <!-- Materialize CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
@@ -13,38 +13,71 @@
     body {
       background-color: #f4f7f5;
     }
+
     header, footer {
       padding: 20px 0;
     }
+
     .hero {
       padding: 40px 20px;
     }
+
     .section-space {
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin-top: 35px;
+      margin-bottom: 35px;
+    }
+
+    .carousel {
+      height: 300px;
+    }
+
+    .carousel .carousel-item img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .carousel-slider {
+      height: 350px;
+    }
+
+    .carousel-slider .carousel-item img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    #motivation-response,
+    #email-response {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #2e7d32;
     }
   </style>
 </head>
+
 <body>
 
   <nav class="green darken-2">
     <div class="nav-wrapper container">
-      <a href="#" class="brand-logo">Fitness Life</a>
+      <a href="materialize.html" class="brand-logo">Fitness Life</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="content.html">Content</a></li>
-  <li><a href="contact.html">Contact</a></li>
-  <li><a href="materialize.html">Materialize</a></li>
-  <li><a href="bootstrap.html">Bootstrap</a></li> <!-- ADD THIS -->
-</ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="content.html">Content</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="materialize.html">Materialize</a></li>
+        <li><a href="bootstrap.html">Bootstrap</a></li>
+      </ul>
     </div>
   </nav>
 
   <header class="hero green lighten-4 center-align">
     <h2>My Health and Fitness Journey</h2>
     <p>Staying active, eating well, and building better habits every day.</p>
-    <a class="btn green darken-2">Stay Motivated</a>
+    <a class="btn green darken-2 waves-effect waves-light" onclick="showMotivation()">Stay Motivated</a>
+    <div id="motivation-response"></div>
   </header>
 
   <main class="container">
@@ -80,9 +113,145 @@
       </div>
     </section>
 
-    <section class="center-align section-space">
-      <h4>Fitness Inspiration</h4>
-      <img src="images/fitness.jpg" alt="Fitness" class="circle responsive-img" style="width: 250px; height: 250px; object-fit: cover;">
+    <!-- Radio Button JS Interaction -->
+    <section class="section-space card-panel white">
+      <h4>Choose Your Favorite Fitness Activity</h4>
+
+      <form>
+        <p>
+          <label>
+            <input name="activity" type="radio" value="Strength Training" onclick="displayActivity()">
+            <span>Strength Training</span>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input name="activity" type="radio" value="Running" onclick="displayActivity()">
+            <span>Running</span>
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input name="activity" type="radio" value="Healthy Cooking" onclick="displayActivity()">
+            <span>Healthy Cooking</span>
+          </label>
+        </p>
+      </form>
+
+      <div id="activity-response"></div>
+    </section>
+
+    <!-- Subscribe JS Interaction -->
+    <section class="section-space card-panel white">
+      <h4>Subscribe for Fitness Tips</h4>
+
+      <form onsubmit="submitEmail(event)">
+        <div class="input-field">
+          <input id="email" type="email" required>
+          <label for="email">Email</label>
+        </div>
+
+        <button type="submit" class="btn green darken-2 waves-effect waves-light">Subscribe</button>
+      </form>
+
+      <div id="email-response"></div>
+    </section>
+
+    <!-- Basic Carousel -->
+    <section class="section-space">
+      <h4 class="center-align">Basic Carousel</h4>
+
+      <div class="center-align">
+        <button id="basicPrev" class="btn green darken-2 waves-effect">Prev</button>
+        <button id="basicNext" class="btn green darken-2 waves-effect">Next</button>
+        <button id="basicGo3" class="btn green darken-2 waves-effect">Go to #3</button>
+      </div>
+
+      <div class="carousel" id="basicCarousel">
+        <a class="carousel-item" href="#one!">
+          <img alt="Workout" src="https://picsum.photos/id/1011/400/400">
+        </a>
+
+        <a class="carousel-item" href="#two!">
+          <img alt="Healthy food" src="https://picsum.photos/id/292/400/400">
+        </a>
+
+        <a class="carousel-item" href="#three!">
+          <img alt="Running" src="https://picsum.photos/id/1035/400/400">
+        </a>
+
+        <a class="carousel-item" href="#four!">
+          <img alt="Exercise" src="https://picsum.photos/id/1060/400/400">
+        </a>
+
+        <a class="carousel-item" href="#five!">
+          <img alt="Nature walk" src="https://picsum.photos/id/1043/400/400">
+        </a>
+      </div>
+    </section>
+
+    <!-- Collapsible -->
+    <section class="section-space">
+      <h4 class="center-align">Health and Fitness Tips</h4>
+
+      <ul class="collapsible" id="demoCollapsible">
+        <li class="active">
+          <div class="collapsible-header">
+            <i class="material-icons">fitness_center</i>
+            Strength Training
+          </div>
+          <div class="collapsible-body">
+            <p>Strength training helps build muscle, improve posture, and make daily activities easier.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">restaurant</i>
+            Nutrition
+          </div>
+          <div class="collapsible-body">
+            <p>Eating balanced meals gives your body energy and helps support recovery after workouts.</p>
+          </div>
+        </li>
+
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">hotel</i>
+            Recovery
+          </div>
+          <div class="collapsible-body">
+            <p>Sleep, rest days, stretching, and hydration are important parts of staying healthy.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Full Width Carousel -->
+    <section class="section-space">
+      <h4 class="center-align">Full Width Fitness Carousel</h4>
+
+      <div class="center-align">
+        <button id="fwPrev" class="btn green darken-2 waves-effect">Prev</button>
+        <button id="fwNext" class="btn green darken-2 waves-effect">Next</button>
+        <button id="fwToggle" class="btn green darken-2 waves-effect">Toggle Autoplay</button>
+      </div>
+
+      <div class="carousel carousel-slider" id="fullWidthCarousel">
+        <a class="carousel-item" href="#slide1!">
+          <img alt="Fitness slide 1" src="https://picsum.photos/id/1056/1200/500">
+        </a>
+
+        <a class="carousel-item" href="#slide2!">
+          <img alt="Fitness slide 2" src="https://picsum.photos/id/1075/1200/500">
+        </a>
+
+        <a class="carousel-item" href="#slide3!">
+          <img alt="Fitness slide 3" src="https://picsum.photos/id/1080/1200/500">
+        </a>
+      </div>
     </section>
 
     <section class="section-space">
@@ -100,6 +269,96 @@
     </div>
   </footer>
 
+  <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const basicElem = document.querySelector('#basicCarousel');
+      const basicInstance = M.Carousel.init(basicElem, {
+        duration: 200,
+        dist: -100,
+        shift: 0,
+        padding: 0,
+        numVisible: 5,
+        indicators: false
+      });
+
+      document.querySelector('#basicPrev').addEventListener('click', function () {
+        basicInstance.prev();
+      });
+
+      document.querySelector('#basicNext').addEventListener('click', function () {
+        basicInstance.next();
+      });
+
+      document.querySelector('#basicGo3').addEventListener('click', function () {
+        basicInstance.set(2);
+      });
+
+      const collElem = document.querySelector('#demoCollapsible');
+      M.Collapsible.init(collElem, {
+        accordion: false
+      });
+
+      const fwElem = document.querySelector('#fullWidthCarousel');
+      const fwInstance = M.Carousel.init(fwElem, {
+        fullWidth: true,
+        indicators: true
+      });
+
+      document.querySelector('#fwPrev').addEventListener('click', function () {
+        fwInstance.prev();
+      });
+
+      document.querySelector('#fwNext').addEventListener('click', function () {
+        fwInstance.next();
+      });
+
+      let autoplayOn = false;
+      let autoplayTimer = null;
+
+      function startAutoplay() {
+        autoplayTimer = setInterval(function () {
+          fwInstance.next();
+        }, 3000);
+        autoplayOn = true;
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+        autoplayOn = false;
+      }
+
+      document.querySelector('#fwToggle').addEventListener('click', function () {
+        if (autoplayOn) {
+          stopAutoplay();
+        } else {
+          startAutoplay();
+        }
+      });
+    });
+
+    function showMotivation() {
+      document.getElementById('motivation-response').innerText =
+        "Keep going! Small healthy choices add up over time.";
+    }
+
+    function displayActivity() {
+      const selectedActivity = document.querySelector('input[name="activity"]:checked').value;
+      document.getElementById('activity-response').innerText =
+        "You selected: " + selectedActivity;
+    }
+
+    function submitEmail(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      document.getElementById('email-response').innerText =
+        "Thank you for subscribing! Fitness tips will be sent to: " + email;
+      document.getElementById('email').value = "";
+    }
+  </script>
+
 </body>
 </html>
